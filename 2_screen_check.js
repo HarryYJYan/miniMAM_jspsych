@@ -33,7 +33,3 @@ var results_trial = {
   choices: ['Done']
 }
 
-var fullscreen_trial_exit = {
-  type: jsPsychFullscreen,
-  fullscreen_mode: false
-};

@@ -74,3 +74,4 @@ jsPsych.run([
     results_trial,
     fullscreen_trial_exit
 ]);
+
