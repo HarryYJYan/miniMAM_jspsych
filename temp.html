@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Example jsPsych Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/@jspsych/jspsych@7.2.2/jspsych.js"></script>]
+    <script src="jspsych/plugins/jspsych-survey-likert.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@jspsych/jspsych@7.2.2/css/jspsych.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="jspsych-target"></div>
+
+    <script>
+        // define the trial object
+        var trial = {
+            type: jsPsychSurveyLikert,
+            preamble: '<img src="https://picsum.photos/300/200" alt="random image" /><br>How much do you like this picture?',
+            questions: [
+                {
+                    prompt: 'Strongly dislike',
+                    labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Strongly like'],
+                    required: true
+                }
+            ],
+            data: {
+                picture_id: 1 // replace with the ID of the picture you're showing
+            }
+        };
+
+        // define the timeline
+        var timeline = [];
+        timeline.push(trial);
+
+        // run the experiment
+        jsPsych.init({
+            timeline: timeline,
+            on_finish: function() {
+                jsPsych.data.displayData();
+            }
+        });
+    </script>
+</body>
+</html>
